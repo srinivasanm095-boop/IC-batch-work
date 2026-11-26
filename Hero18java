@@ -1,0 +1,37 @@
+import java.util.HashMap;
+
+public class Hero18 {
+    public static void main(String[] args) {
+        HashMap<Integer, Integer> a = new HashMap<>();
+        a.put(101, 25000);
+        a.put(102, 30000);
+        a.put(103, 35000);
+        a.put(104, 40000);
+        System.out.println("Employee Records: " + a);
+        a.put(105, 45000);
+        System.out.println("After Adding Employee: " + a);
+        a.replace(102, 50000);
+        System.out.println("After Updating Salary: " + a);
+        System.out.println("Salary of Employee 102: " + a.get(102));
+        System.out.println("All Employee IDs and Salaries:");
+        for (var entry : a.entrySet()) {
+            System.out.println("Employee ID: " + entry.getKey()
+                    + " Salary: " + entry.getValue());
+        }
+        int highest = 0;
+        int employeeId = 0;
+        for (var entry : a.entrySet()) {
+            if (entry.getValue() > highest) {
+                highest = entry.getValue();
+                employeeId = entry.getKey();
+            }
+        }
+        System.out.println("Highest Salary Employee ID: " + employeeId);
+        System.out.println("Highest Salary: " + highest);
+        int total = 0;
+        for (int salary : a.values()) {
+            total = total + salary;
+        }
+        System.out.println("Total Salary Expenditure: " + total);
+    }
+}
